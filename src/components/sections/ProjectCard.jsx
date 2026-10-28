@@ -1,4 +1,5 @@
 import { ArrowUpRight, Lock } from 'lucide-react';
+import { asset } from '../../utils/asset';
 import styles from './ProjectCard.module.css';
 
 const getDomain = (url) => new URL(url).hostname.replace(/^www\./, '');
@@ -6,7 +7,7 @@ const getDomain = (url) => new URL(url).hostname.replace(/^www\./, '');
 export default function ProjectCard({ project, index }) {
   const domain = getDomain(project.url);
   const hasScreenshot = project.screenshot !== false;
-  const base = `/projects/${project.slug}`;
+  const base = asset(`/projects/${project.slug}`);
 
   return (
     <a className={styles.card} href={project.url} target="_blank" rel="noopener noreferrer">

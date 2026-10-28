@@ -1,5 +1,6 @@
 import { ArrowRight, ArrowUpRight, History } from 'lucide-react';
 import { featuredApp as app } from '../../data/apps';
+import { asset } from '../../utils/asset';
 import Button from '../ui/Button';
 import Icon from '../ui/Icon';
 import Reveal from '../ui/Reveal';
@@ -71,7 +72,7 @@ export default function AppShowcase() {
             {app.image ? (
               <img
                 className={styles.screenshot}
-                src={app.image}
+                src={asset(app.image)}
                 alt={`${app.name} dashboard`}
                 loading="lazy"
                 decoding="async"

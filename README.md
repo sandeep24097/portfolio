@@ -65,8 +65,10 @@ The form then posts JSON and shows inline success and error states. A hidden hon
 
 The output in `dist/` is a static site, so any static host works:
 
-- **Vercel / Netlify:** import the GitHub repo. Build command `npm run build`, output directory `dist`.
-- **GitHub Pages:** set `base: '/portfolio/'` in `vite.config.js` (the repo name), build, then publish `dist/`.
+- **GitHub Pages (set up):** `.github/workflows/deploy.yml` builds and publishes the site on every push to `main`, at https://sandeep24097.github.io/portfolio/. One-time setup: in the repo go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+- **Vercel / Netlify:** import the GitHub repo. Build command `npm run build`, output directory `dist`. No base path is needed, because the site is served from the domain root.
+
+Images in `public/` should be referenced through `asset()` from `src/utils/asset.js`, so they resolve under the GitHub Pages sub-path.
 
 ## Project structure
 

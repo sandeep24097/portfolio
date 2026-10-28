@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { ArrowRight, Gauge, ShoppingBag } from 'lucide-react';
 import { profile } from '../../data/profile';
 import { projects } from '../../data/projects';
+import { asset } from '../../utils/asset';
 import Button from '../ui/Button';
 import { GitHubIcon } from '../ui/BrandIcons';
 import styles from './Hero.module.css';
@@ -91,7 +92,7 @@ function HeroVisual() {
         <div className={styles.portrait}>
           {showPhoto ? (
             <img
-              src={profile.photo}
+              src={asset(profile.photo)}
               alt={`Portrait of ${profile.name}`}
               width="400"
               height="400"

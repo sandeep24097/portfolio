@@ -1,5 +1,6 @@
 import { ArrowUpRight, Check } from 'lucide-react';
 import { profile } from '../../data/profile';
+import { asset } from '../../utils/asset';
 import { GitHubIcon } from '../ui/BrandIcons';
 import Reveal from '../ui/Reveal';
 import SectionHeading from '../ui/SectionHeading';
@@ -67,7 +68,7 @@ export default function About() {
         <Reveal className={styles.card} delay={150}>
           <div className={styles.cardHeader}>
             {profile.photo ? (
-              <img src={profile.photo} alt="" width="56" height="56" loading="lazy" className={styles.avatar} />
+              <img src={asset(profile.photo)} alt="" width="56" height="56" loading="lazy" className={styles.avatar} />
             ) : (
               <span className={`${styles.avatar} ${styles.initials}`} aria-hidden="true">
                 {profile.initials}

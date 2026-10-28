@@ -1,6 +1,5 @@
 /**
  * Personal details used across the site.
- * Anything marked TODO is a placeholder — replace it before going live.
  */
 export const profile = {
   name: 'Sandeep Paswan',

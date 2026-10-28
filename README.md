@@ -65,7 +65,7 @@ The form then posts JSON and shows inline success and error states. A hidden hon
 
 The output in `dist/` is a static site, so any static host works:
 
-- **GitHub Pages (set up):** `.github/workflows/deploy.yml` builds and publishes the site on every push to `main`, at https://sandeep24097.github.io/portfolio/. One-time setup: in the repo go to **Settings → Pages → Build and deployment → Source** and choose **GitHub Actions**.
+- **GitHub Pages (live):** https://sandeep24097.github.io/portfolio/. `.github/workflows/deploy.yml` builds the site on every push to `main` and publishes the static files to the `gh-pages` branch. No setup is needed; the update goes live 1–2 minutes after each push.
 - **Vercel / Netlify:** import the GitHub repo. Build command `npm run build`, output directory `dist`. No base path is needed, because the site is served from the domain root.
 
 Images in `public/` should be referenced through `asset()` from `src/utils/asset.js`, so they resolve under the GitHub Pages sub-path.

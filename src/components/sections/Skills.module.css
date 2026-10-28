@@ -7,7 +7,8 @@
   gap: 20px;
 }
 
-@media (min-width: 1024px) {
+/* Primary card spans the full row; the smaller groups sit side by side below it. */
+@media (min-width: 700px) {
   .bento {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -15,13 +16,26 @@
   .primary {
     grid-column: 1 / -1;
   }
+}
 
-  .primary .tiles {
+/* Two columns: a lone last card spans the row instead of leaving a gap. */
+@media (min-width: 700px) and (max-width: 1023px) {
+  .bento > :last-child:nth-child(even) {
+    grid-column: 1 / -1;
+  }
+
+  .bento > :last-child:nth-child(even) .list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .bento {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+  .primary .tiles {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 

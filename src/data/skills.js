@@ -33,12 +33,23 @@ export const skillGroups = [
     id: 'backend',
     title: 'Backend & Tooling',
     icon: 'Server',
-    description: 'APIs, data and the workflow behind reliable releases.',
+    description: 'APIs, server logic and the workflow behind reliable releases.',
     skills: [
       { name: 'Node.js & Express.js', icon: 'Server' },
-      { name: 'MongoDB', icon: 'Database' },
       { name: 'REST APIs', icon: 'Plug' },
       { name: 'Git & GitHub', icon: 'GitBranch' },
+    ],
+  },
+  {
+    id: 'database',
+    title: 'Databases',
+    icon: 'Database',
+    description: 'SQL and NoSQL storage for apps, integrations and dashboards.',
+    skills: [
+      { name: 'MySQL', icon: 'Database' },
+      { name: 'MongoDB', icon: 'Leaf' },
+      { name: 'SQLite', icon: 'Feather' },
+      { name: 'Prisma', icon: 'Triangle' },
     ],
   },
 ];

@@ -36,6 +36,7 @@ export const skillGroups = [
     description: 'APIs, server logic and the workflow behind reliable releases.',
     skills: [
       { name: 'Node.js & Express.js', icon: 'Server' },
+      { name: 'PHP', icon: 'SquareCode' },
       { name: 'REST APIs', icon: 'Plug' },
       { name: 'Git & GitHub', icon: 'GitBranch' },
     ],

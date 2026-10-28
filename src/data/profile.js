@@ -37,7 +37,7 @@ export const profile = {
    * entering your email — the key arrives by email. When set, the form uses
    * Web3Forms instead of `contactFormEndpoint`. The key is safe to publish.
    */
-  web3formsKey: '',
+  web3formsKey: 'bf49a2ea-9d5f-40f7-996a-deb135465718',
 };
 
 export const navLinks = [

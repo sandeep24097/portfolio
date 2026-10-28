@@ -26,7 +26,6 @@ All content lives in `src/data/`. You shouldn't need to touch the components to 
 ### Before going live
 
 - [ ] `profile.js` → set `linkedin` (currently a placeholder URL)
-- [ ] Activate the contact form: submit it once on the live site, then click **Activate Form** in the email FormSubmit sends
 - [ ] `apps.js` → set `appUrl` for Restorely, StockShield and PartMatch YMM once their Shopify App Store listings are live (each card switches to a "View on Shopify App Store" link automatically)
 - [ ] `apps.js` → optionally set `image` to a real Restorely screenshot (e.g. `/images/restorely.webp`) to replace the illustrative mockup
 - [ ] `index.html` → once deployed, change `og:image` / `twitter:image` to absolute URLs (`https://your-domain.com/og-image.png`) and add `<link rel="canonical" href="https://your-domain.com/" />`
@@ -50,15 +49,20 @@ Icons come from [lucide](https://lucide.dev/icons). Use the icon's name in the d
 
 ## Contact form
 
-Submissions are emailed to you through [FormSubmit](https://formsubmit.co), which is free and needs no account. The endpoint lives in `profile.js`:
+Submissions are emailed to sandeepkumar509780@gmail.com through [Web3Forms](https://web3forms.com). It's free, and messages arrive in under a second. The access key lives in `profile.js`:
 
 ```js
-contactFormEndpoint: 'https://formsubmit.co/ajax/sandeepkumar509780@gmail.com',
+web3formsKey: 'bf49a2ea-9d5f-40f7-996a-deb135465718',
 ```
 
-**One-time activation:** the first submission doesn't reach you as a message. FormSubmit sends an "Activate Form" email to that address instead; click it once. Every submission after that arrives as an email with the subject "New portfolio enquiry: …", and replying goes straight to the visitor. Until the form is activated, visitors see an error asking them to email you directly.
+Each enquiry arrives with the subject "New portfolio enquiry: <type> — <name>", and replying goes straight to the visitor. The key is designed to be public; manage it, or see past submissions, from the Web3Forms dashboard.
 
-To use [Formspree](https://formspree.io) instead, paste its endpoint (`https://formspree.io/f/xxxxxxx`) into `contactFormEndpoint`. If `contactFormEndpoint` is empty, the form opens the visitor's email app with the message pre-filled.
+Fallbacks, used in this order when `web3formsKey` is empty:
+
+1. `contactFormEndpoint`: currently FormSubmit, which is slow (it can take about a minute) and needs a one-time "Activate Form" click. A Formspree endpoint also works here.
+2. With no endpoint at all, the form opens the visitor's email app with the message pre-filled.
+
+Web3Forms rejects automated/headless browsers, so test the form in a normal browser.
 
 A hidden honeypot field filters out basic spam bots.
 

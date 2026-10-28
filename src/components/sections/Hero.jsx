@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { ArrowRight, Gauge, ShoppingBag } from 'lucide-react';
+import { apps } from '../../data/apps';
 import { profile } from '../../data/profile';
 import { projects } from '../../data/projects';
 import { asset } from '../../utils/asset';
@@ -10,7 +11,7 @@ import styles from './Hero.module.css';
 const stats = [
   { value: profile.experience, label: 'Years in Shopify development' },
   { value: projects.length, label: 'Live projects showcased' },
-  { value: 1, label: 'Custom Shopify app built' },
+  { value: apps.length, label: 'Custom Shopify apps built' },
 ];
 
 export default function Hero() {

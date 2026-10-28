@@ -24,7 +24,7 @@
 .track {
   display: flex;
   width: max-content;
-  animation: scroll 50s linear infinite;
+  animation: scroll var(--duration, 50s) linear infinite;
 }
 
 .viewport:hover .track {

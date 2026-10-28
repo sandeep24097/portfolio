@@ -4,7 +4,7 @@ import styles from './ProjectCard.module.css';
 
 const getDomain = (url) => new URL(url).hostname.replace(/^www\./, '');
 
-export default function ProjectCard({ project, index }) {
+export default function ProjectCard({ project }) {
   const domain = getDomain(project.url);
   const hasScreenshot = project.screenshot !== false;
   const base = asset(`/projects/${project.slug}`);
@@ -49,9 +49,7 @@ export default function ProjectCard({ project, index }) {
       <div className={styles.body}>
         <div className={styles.meta}>
           <span className={styles.category}>{project.category}</span>
-          <span className={styles.number} aria-hidden="true">
-            {String(index + 1).padStart(2, '0')}
-          </span>
+          {project.platform && <span className={styles.platform}>{project.platform}</span>}
         </div>
         <h3 className={styles.title}>{project.name}</h3>
         <p className={styles.description}>{project.description}</p>

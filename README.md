@@ -21,15 +21,15 @@ All content lives in `src/data/`. You shouldn't need to touch the components to 
 | `projects.js` | Portfolio projects (name, URL, category, description) |
 | `skills.js` | Skill groups for the bento grid |
 | `services.js` | Service cards and the 4-step process |
-| `apps.js` | The Restorely app (description, features, App Store link, screenshot) |
+| `apps.js` | Shopify apps — Restorely (featured), StockShield, PartMatch YMM: description, features, App Store links |
 
 ### Before going live
 
 - [ ] `profile.js` → set `email` (currently `hello@example.com`)
 - [ ] `profile.js` → set `linkedin` (currently a placeholder URL)
-- [ ] `apps.js` → set `appUrl` once the Shopify App Store listing is live (the card switches to a "View on Shopify App Store" button automatically)
+- [ ] `apps.js` → set `appUrl` for Restorely, StockShield and PartMatch YMM once their Shopify App Store listings are live (each card switches to a "View on Shopify App Store" link automatically)
 - [ ] `apps.js` → optionally set `image` to a real Restorely screenshot (e.g. `/images/restorely.webp`) to replace the illustrative mockup
-- [ ] `projects.js` → review the FitTrack description; the site was unreachable when this was built
+- [ ] `projects.js` → review the FitTrack and Ivy and Baer cards; those sites were unreachable or password-protected when screenshots were taken
 - [ ] `index.html` → once deployed, change `og:image` / `twitter:image` to absolute URLs (`https://your-domain.com/og-image.png`) and add `<link rel="canonical" href="https://your-domain.com/" />`
 
 ### Adding a project

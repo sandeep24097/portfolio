@@ -1,0 +1,69 @@
+.strip {
+  padding-block: 36px 40px;
+  border-block: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+
+.label {
+  margin-bottom: 22px;
+  padding-inline: var(--gutter);
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.viewport {
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 12%, #000 88%, transparent);
+}
+
+.track {
+  display: flex;
+  width: max-content;
+  animation: scroll 50s linear infinite;
+}
+
+.viewport:hover .track {
+  animation-play-state: paused;
+}
+
+.track li {
+  flex-shrink: 0;
+  padding-inline: clamp(20px, 3vw, 36px);
+}
+
+.track a {
+  font-size: clamp(18px, 2.2vw, 24px);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  color: var(--text-faint);
+  transition: color 0.2s ease;
+}
+
+.track a:hover {
+  color: var(--text);
+}
+
+@keyframes scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track {
+    flex-wrap: wrap;
+    justify-content: center;
+    width: auto;
+    animation: none;
+  }
+
+  .track li[aria-hidden='true'] {
+    display: none;
+  }
+}

@@ -1,0 +1,265 @@
+/* The mockup always renders as a light "Shopify admin" surface for contrast. */
+.window {
+  --m-bg: #f1f2f4;
+  --m-surface: #ffffff;
+  --m-border: #e3e5e8;
+  --m-text: #1a1c1f;
+  --m-muted: #6b7177;
+  --m-green: #0d9f6e;
+  --m-green-soft: #e3f6ee;
+
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  background: var(--m-bg);
+  color: var(--m-text);
+  font-size: 13px;
+  box-shadow: var(--shadow-pop);
+  user-select: none;
+}
+
+.titleBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: #1a1c1f;
+}
+
+.dots {
+  display: flex;
+  gap: 6px;
+}
+
+.dots i {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+}
+
+.dots i:nth-child(1) {
+  background: #ff5f57;
+}
+
+.dots i:nth-child(2) {
+  background: #febc2e;
+}
+
+.dots i:nth-child(3) {
+  background: #28c840;
+}
+
+.titleText {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.app {
+  display: grid;
+  gap: 12px;
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #34d399, #22d3ee);
+  color: #03140d;
+}
+
+.primaryBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 12px;
+  border-radius: 9px;
+  background: #1a1c1f;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  border: 1px solid var(--m-border);
+  border-radius: 12px;
+  background: var(--m-surface);
+}
+
+.status strong {
+  display: block;
+  font-size: 13.5px;
+}
+
+.status small {
+  display: block;
+  font-size: 12px;
+  color: var(--m-muted);
+}
+
+.status > div {
+  flex: 1;
+  min-width: 0;
+}
+
+.shield {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--m-green-soft);
+  color: var(--m-green);
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--m-green-soft);
+  color: var(--m-green);
+  font-size: 11.5px;
+  font-weight: 600;
+}
+
+.columns {
+  display: grid;
+  gap: 12px;
+}
+
+@media (min-width: 520px) {
+  .columns {
+    grid-template-columns: 1.3fr 1fr;
+  }
+}
+
+.card {
+  padding: 14px;
+  border: 1px solid var(--m-border);
+  border-radius: 12px;
+  background: var(--m-surface);
+}
+
+.cardTitle {
+  margin-bottom: 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--m-muted);
+}
+
+.resources {
+  display: grid;
+  gap: 6px;
+}
+
+.resources li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px;
+  border-radius: 9px;
+  background: var(--m-bg);
+}
+
+.checkDot {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--m-green);
+  color: #fff;
+}
+
+.resourceName {
+  flex: 1;
+  font-weight: 600;
+}
+
+.restoreBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 8px;
+  border: 1px solid var(--m-border);
+  border-radius: 7px;
+  background: var(--m-surface);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.timeline {
+  display: grid;
+  gap: 12px;
+  padding-left: 2px;
+}
+
+.timeline li {
+  position: relative;
+  display: flex;
+  gap: 10px;
+}
+
+.timeline li:not(:last-child)::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 14px;
+  bottom: -12px;
+  width: 2px;
+  background: var(--m-border);
+}
+
+.node {
+  flex-shrink: 0;
+  width: 12px;
+  height: 12px;
+  margin-top: 2px;
+  border: 2px solid var(--m-border);
+  border-radius: 50%;
+  background: var(--m-surface);
+}
+
+.current .node {
+  border-color: var(--m-green);
+  background: var(--m-green);
+  box-shadow: 0 0 0 4px var(--m-green-soft);
+}
+
+.timeline strong {
+  display: block;
+  font-size: 12.5px;
+}
+
+.timeline small {
+  display: block;
+  font-size: 11.5px;
+  color: var(--m-muted);
+}

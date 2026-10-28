@@ -1,0 +1,106 @@
+.footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-elev);
+}
+
+.inner {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-block: 48px 32px;
+}
+
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: var(--gradient);
+  color: var(--accent-ink);
+  font-weight: 800;
+  font-size: 15px;
+}
+
+.name {
+  font-weight: 700;
+}
+
+.role {
+  font-size: 14px;
+  color: var(--text-faint);
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+}
+
+.links a,
+.backToTop {
+  font-size: 14px;
+  color: var(--text-muted);
+  transition: color 0.2s ease;
+}
+
+.links a:hover,
+.backToTop:hover {
+  color: var(--text);
+}
+
+.social {
+  display: flex;
+  gap: 10px;
+}
+
+.social a {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--text-muted);
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.social a:hover {
+  color: var(--text);
+  border-color: var(--accent-border);
+  transform: translateY(-2px);
+}
+
+.bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+  font-size: 14px;
+  color: var(--text-faint);
+}
+
+.backToTop {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}

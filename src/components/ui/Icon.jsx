@@ -26,7 +26,6 @@ import {
   ShoppingBag,
   Sparkles,
   Store,
-  Triangle,
   Webhook,
   Wrench,
 } from 'lucide-react';
@@ -64,7 +63,6 @@ const icons = {
   ShoppingBag,
   Sparkles,
   Store,
-  Triangle,
   Webhook,
   Wrench,
 };

@@ -49,7 +49,6 @@ export const skillGroups = [
       { name: 'MySQL', icon: 'Database' },
       { name: 'MongoDB', icon: 'Leaf' },
       { name: 'SQLite', icon: 'Feather' },
-      { name: 'Prisma', icon: 'Triangle' },
     ],
   },
 ];

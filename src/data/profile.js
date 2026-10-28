@@ -31,6 +31,13 @@ export const profile = {
    * When empty, the form opens the visitor's email app instead.
    */
   contactFormEndpoint: 'https://formsubmit.co/ajax/sandeepkumar509780@gmail.com',
+
+  /**
+   * Web3Forms access key (free, fast). Get one at https://web3forms.com by
+   * entering your email — the key arrives by email. When set, the form uses
+   * Web3Forms instead of `contactFormEndpoint`. The key is safe to publish.
+   */
+  web3formsKey: '',
 };
 
 export const navLinks = [

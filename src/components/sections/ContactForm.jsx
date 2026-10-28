@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { CircleCheck, LoaderCircle, Send, TriangleAlert } from 'lucide-react';
+import { CircleCheck, Clock, LoaderCircle, Send, TriangleAlert } from 'lucide-react';
 import { profile } from '../../data/profile';
 import { services } from '../../data/services';
 import Button from '../ui/Button';
@@ -7,15 +7,41 @@ import styles from './ContactForm.module.css';
 
 const projectTypes = [...services.map((s) => s.title), 'Something else'];
 
+const SLOW_AFTER_MS = 8000;
+const GIVE_UP_AFTER_MS = 90000;
+
 const statusMessages = {
   sent: { icon: CircleCheck, text: 'Thanks! Your message has been sent — I’ll reply as soon as I can.' },
+  slow: { icon: Clock, text: 'Still sending — this can take up to a minute. Please keep this page open.' },
   mailto: { icon: CircleCheck, text: 'Your email app should now open with the message ready to send.' },
   error: { icon: TriangleAlert, text: `Something went wrong. Please email me directly at ${profile.email}.` },
 };
 
+/** Builds the request for Web3Forms (preferred, fast) or the generic endpoint (FormSubmit / Formspree). */
+function buildRequest(data) {
+  const subject = `New portfolio enquiry: ${data.projectType} — ${data.name}`;
+
+  if (profile.web3formsKey) {
+    // FormData keeps this a "simple" CORS request, so there's no preflight round-trip.
+    const body = new FormData();
+    const fields = { ...data, access_key: profile.web3formsKey, subject, from_name: 'Portfolio contact form' };
+    Object.entries(fields).forEach(([key, value]) => body.append(key, value));
+    return ['https://api.web3forms.com/submit', { method: 'POST', headers: { Accept: 'application/json' }, body }];
+  }
+
+  return [
+    profile.contactFormEndpoint,
+    {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+      body: JSON.stringify({ ...data, _subject: subject, _template: 'table' }),
+    },
+  ];
+}
+
 /**
- * Posts JSON to `profile.contactFormEndpoint` (e.g. Formspree) when configured;
- * otherwise falls back to opening a pre-filled email.
+ * Sends the enquiry to Web3Forms or `profile.contactFormEndpoint` when one is
+ * configured; otherwise falls back to opening a pre-filled email.
  */
 export default function ContactForm() {
   const [status, setStatus] = useState('idle');
@@ -26,18 +52,14 @@ export default function ContactForm() {
     const { _gotcha, ...data } = Object.fromEntries(new FormData(form));
     if (_gotcha) return; // honeypot filled → bot
 
-    if (profile.contactFormEndpoint) {
+    if (profile.web3formsKey || profile.contactFormEndpoint) {
       setStatus('sending');
+      const controller = new AbortController();
+      const slowTimer = setTimeout(() => setStatus('slow'), SLOW_AFTER_MS);
+      const giveUpTimer = setTimeout(() => controller.abort(), GIVE_UP_AFTER_MS);
       try {
-        const response = await fetch(profile.contactFormEndpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({
-            ...data,
-            _subject: `New portfolio enquiry: ${data.projectType} — ${data.name}`,
-            _template: 'table',
-          }),
-        });
+        const [url, init] = buildRequest(data);
+        const response = await fetch(url, { ...init, signal: controller.signal });
         // FormSubmit answers 200 with { success: "false" } until the form is activated.
         const result = await response.json().catch(() => ({}));
         if (!response.ok || String(result.success) === 'false') {
@@ -47,6 +69,9 @@ export default function ContactForm() {
         setStatus('sent');
       } catch {
         setStatus('error');
+      } finally {
+        clearTimeout(slowTimer);
+        clearTimeout(giveUpTimer);
       }
       return;
     }
@@ -58,6 +83,7 @@ export default function ContactForm() {
   };
 
   const message = statusMessages[status];
+  const sending = status === 'sending' || status === 'slow';
 
   return (
     <form className={styles.form} onSubmit={handleSubmit}>
@@ -104,16 +130,16 @@ export default function ContactForm() {
         type="submit"
         size="lg"
         className={styles.submit}
-        disabled={status === 'sending'}
+        disabled={sending}
         iconRight={
-          status === 'sending' ? (
+          sending ? (
             <LoaderCircle size={18} className={styles.spin} aria-hidden="true" />
           ) : (
             <Send size={17} aria-hidden="true" />
           )
         }
       >
-        {status === 'sending' ? 'Sending…' : 'Send message'}
+        {sending ? 'Sending…' : 'Send message'}
       </Button>
 
       <div className={styles.statusArea} aria-live="polite">

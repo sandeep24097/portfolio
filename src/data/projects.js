@@ -93,6 +93,15 @@ export const projects = [
       'Veterinarian-founded brand selling organic, veterinary-grade hip and joint chews and other supplements for dogs.',
   },
   {
+    slug: 'pataaree',
+    name: 'Pataaree',
+    url: 'https://pataaree.com/',
+    platform: 'Shopify',
+    category: 'Wedding & Gifting',
+    description:
+      'Store for handcrafted Indian wedding ceremony essentials for NRI families — trousseau trunks, shagun gifts and haldi sets — shipping to the USA, UK, Canada and 20+ countries.',
+  },
+  {
     slug: 'kiddimoto',
     name: 'Kiddimoto',
     url: 'https://kiddimoto.co.uk/',
@@ -154,26 +163,6 @@ export const projects = [
     category: 'Fitness Coaching',
     description:
       'Online Hyrox and strength coaching for women — structured programming, real-food nutrition and a shop, built around booking a coaching spot.',
-  },
-  {
-    slug: 'fittrack',
-    name: 'FitTrack',
-    url: 'https://tryfittrack.com/',
-    platform: 'Shopify',
-    category: 'Health & Fitness',
-    description: 'Shopify storefront for the FitTrack health and fitness brand.',
-    // The live site was unreachable (TLS error) when previews were captured.
-    screenshot: false,
-  },
-  {
-    slug: 'ivy-and-baer',
-    name: 'Ivy and Baer',
-    url: 'https://www.ivyandbaer.com/',
-    platform: 'Shopify',
-    category: 'Home Fragrance',
-    description: 'Store for a home fragrance brand selling hand-poured soy wax melts.',
-    // The store was password-protected when previews were captured.
-    screenshot: false,
   },
 
   // -------------------------------------------------------------- WordPress

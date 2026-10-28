@@ -29,7 +29,6 @@ All content lives in `src/data/`. You shouldn't need to touch the components to 
 - [ ] Activate the contact form: submit it once on the live site, then click **Activate Form** in the email FormSubmit sends
 - [ ] `apps.js` → set `appUrl` for Restorely, StockShield and PartMatch YMM once their Shopify App Store listings are live (each card switches to a "View on Shopify App Store" link automatically)
 - [ ] `apps.js` → optionally set `image` to a real Restorely screenshot (e.g. `/images/restorely.webp`) to replace the illustrative mockup
-- [ ] `projects.js` → review the FitTrack and Ivy and Baer cards; those sites were unreachable or password-protected when screenshots were taken
 - [ ] `index.html` → once deployed, change `og:image` / `twitter:image` to absolute URLs (`https://your-domain.com/og-image.png`) and add `<link rel="canonical" href="https://your-domain.com/" />`
 
 ### Adding a project

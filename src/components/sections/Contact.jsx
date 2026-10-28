@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowUpRight, Check, Copy, Mail, MapPin } from 'lucide-react';
+import { ArrowUpRight, Check, Copy, Mail, MapPin, Phone } from 'lucide-react';
 import { profile } from '../../data/profile';
 import { GitHubIcon, LinkedInIcon } from '../ui/BrandIcons';
 import Reveal from '../ui/Reveal';
@@ -63,6 +63,19 @@ export default function Contact() {
               <span>{copied ? 'Copied' : 'Copy'}</span>
             </button>
           </div>
+
+          {profile.phone && (
+            <a href={`tel:${profile.phoneHref}`} className={`${styles.channel} ${styles.phoneCard}`}>
+              <span className={styles.channelIcon}>
+                <Phone size={18} aria-hidden="true" />
+              </span>
+              <span className={styles.channelText}>
+                <small>Phone</small>
+                <span>{profile.phone}</span>
+              </span>
+              <span className={styles.callLabel}>Call</span>
+            </a>
+          )}
 
           <ul className={styles.channels}>
             {channels.map((channel) => (

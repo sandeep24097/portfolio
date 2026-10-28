@@ -21,6 +21,11 @@
   align-items: start;
 }
 
+/* Let columns shrink below their content so the long email ellipsizes on mobile. */
+.layout > * {
+  min-width: 0;
+}
+
 @media (min-width: 1024px) {
   .layout {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
@@ -140,6 +145,20 @@
 
 .channelText a:hover {
   color: var(--accent);
+}
+
+.phoneCard {
+  margin-top: 10px;
+}
+
+.callLabel {
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border: 1px solid var(--border-strong);
+  border-radius: 999px;
+  background: var(--surface-2);
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .channelArrow {

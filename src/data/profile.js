@@ -17,6 +17,9 @@ export const profile = {
     'I design and build fast, polished Shopify stores and apps for brands that care about how their store looks, performs and converts.',
 
   email: 'sandeepkumar509780@gmail.com',
+  // `phone` is shown as-is; `phoneHref` is the dialable international number.
+  phone: '+91 99147 65754',
+  phoneHref: '+919914765754',
   linkedin: 'https://www.linkedin.com/in/sandeep-paswan-93b346194/',
   github: 'https://github.com/sandeep24097',
   sourceRepo: 'https://github.com/sandeep24097/portfolio',

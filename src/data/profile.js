@@ -17,19 +17,20 @@ export const profile = {
   intro:
     'I design and build fast, polished Shopify stores and apps for brands that care about how their store looks, performs and converts.',
 
-  // TODO: replace with your public contact email.
-  email: 'hello@example.com',
+  email: 'sandeepkumar509780@gmail.com',
   // TODO: replace with your LinkedIn profile URL.
   linkedin: 'https://www.linkedin.com/in/your-profile',
   github: 'https://github.com/sandeep24097',
   sourceRepo: 'https://github.com/sandeep24097/portfolio',
 
   /**
-   * Optional form backend (e.g. a Formspree endpoint like
-   * https://formspree.io/f/xxxxxxx). When empty, the contact form opens the
-   * visitor's email client with the message pre-filled instead.
+   * Where the contact form sends messages. FormSubmit.co (free, no account)
+   * forwards every submission to the email in the URL; the very first
+   * submission sends an "Activate Form" email that must be clicked once.
+   * A Formspree endpoint (https://formspree.io/f/xxxxxxx) also works here.
+   * When empty, the form opens the visitor's email app instead.
    */
-  contactFormEndpoint: '',
+  contactFormEndpoint: 'https://formsubmit.co/ajax/sandeepkumar509780@gmail.com',
 };
 
 export const navLinks = [

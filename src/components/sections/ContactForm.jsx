@@ -23,8 +23,8 @@ export default function ContactForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.currentTarget;
-    const data = Object.fromEntries(new FormData(form));
-    if (data._gotcha) return; // honeypot filled → bot
+    const { _gotcha, ...data } = Object.fromEntries(new FormData(form));
+    if (_gotcha) return; // honeypot filled → bot
 
     if (profile.contactFormEndpoint) {
       setStatus('sending');
@@ -32,9 +32,17 @@ export default function ContactForm() {
         const response = await fetch(profile.contactFormEndpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify(data),
+          body: JSON.stringify({
+            ...data,
+            _subject: `New portfolio enquiry: ${data.projectType} — ${data.name}`,
+            _template: 'table',
+          }),
         });
-        if (!response.ok) throw new Error(`Request failed: ${response.status}`);
+        // FormSubmit answers 200 with { success: "false" } until the form is activated.
+        const result = await response.json().catch(() => ({}));
+        if (!response.ok || String(result.success) === 'false') {
+          throw new Error(result.message || `Request failed: ${response.status}`);
+        }
         form.reset();
         setStatus('sent');
       } catch {

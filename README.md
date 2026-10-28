@@ -25,8 +25,8 @@ All content lives in `src/data/`. You shouldn't need to touch the components to 
 
 ### Before going live
 
-- [ ] `profile.js` → set `email` (currently `hello@example.com`)
 - [ ] `profile.js` → set `linkedin` (currently a placeholder URL)
+- [ ] Activate the contact form: submit it once on the live site, then click **Activate Form** in the email FormSubmit sends
 - [ ] `apps.js` → set `appUrl` for Restorely, StockShield and PartMatch YMM once their Shopify App Store listings are live (each card switches to a "View on Shopify App Store" link automatically)
 - [ ] `apps.js` → optionally set `image` to a real Restorely screenshot (e.g. `/images/restorely.webp`) to replace the illustrative mockup
 - [ ] `projects.js` → review the FitTrack and Ivy and Baer cards; those sites were unreachable or password-protected when screenshots were taken
@@ -51,15 +51,17 @@ Icons come from [lucide](https://lucide.dev/icons). Use the icon's name in the d
 
 ## Contact form
 
-By default the form opens the visitor's email app with the message pre-filled, so no backend is needed.
-
-To receive messages directly instead, create a free form at [Formspree](https://formspree.io) and set its endpoint in `profile.js`:
+Submissions are emailed to you through [FormSubmit](https://formsubmit.co), which is free and needs no account. The endpoint lives in `profile.js`:
 
 ```js
-contactFormEndpoint: 'https://formspree.io/f/xxxxxxx',
+contactFormEndpoint: 'https://formsubmit.co/ajax/sandeepkumar509780@gmail.com',
 ```
 
-The form then posts JSON and shows inline success and error states. A hidden honeypot field filters out basic spam bots.
+**One-time activation:** the first submission doesn't reach you as a message. FormSubmit sends an "Activate Form" email to that address instead; click it once. Every submission after that arrives as an email with the subject "New portfolio enquiry: …", and replying goes straight to the visitor. Until the form is activated, visitors see an error asking them to email you directly.
+
+To use [Formspree](https://formspree.io) instead, paste its endpoint (`https://formspree.io/f/xxxxxxx`) into `contactFormEndpoint`. If `contactFormEndpoint` is empty, the form opens the visitor's email app with the message pre-filled.
+
+A hidden honeypot field filters out basic spam bots.
 
 ## Deployment
 

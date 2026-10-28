@@ -25,7 +25,6 @@ All content lives in `src/data/`. You shouldn't need to touch the components to 
 
 ### Before going live
 
-- [ ] `profile.js` → set `linkedin` (currently a placeholder URL)
 - [ ] `apps.js` → set `appUrl` for Restorely, StockShield and PartMatch YMM once their Shopify App Store listings are live (each card switches to a "View on Shopify App Store" link automatically)
 - [ ] `apps.js` → optionally set `image` to a real Restorely screenshot (e.g. `/images/restorely.webp`) to replace the illustrative mockup
 - [ ] `index.html` → once deployed, change `og:image` / `twitter:image` to absolute URLs (`https://your-domain.com/og-image.png`) and add `<link rel="canonical" href="https://your-domain.com/" />`

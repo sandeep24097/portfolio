@@ -18,8 +18,7 @@ export const profile = {
     'I design and build fast, polished Shopify stores and apps for brands that care about how their store looks, performs and converts.',
 
   email: 'sandeepkumar509780@gmail.com',
-  // TODO: replace with your LinkedIn profile URL.
-  linkedin: 'https://www.linkedin.com/in/your-profile',
+  linkedin: 'https://www.linkedin.com/in/sandeep-paswan-93b346194/',
   github: 'https://github.com/sandeep24097',
   sourceRepo: 'https://github.com/sandeep24097/portfolio',
 

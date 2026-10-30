@@ -11,7 +11,9 @@ const PAGE_SIZE = 9;
 const platforms = [...new Set(projects.map((p) => p.platform).filter(Boolean))];
 const countBy = (platform) => projects.filter((p) => p.platform === platform).length;
 
-const summary = platforms.map((platform) => `${countBy(platform)} ${platform}`).join(' and ');
+const parts = platforms.map((platform) => `${countBy(platform)} ${platform}`);
+const summary =
+  parts.length > 1 ? `${parts.slice(0, -1).join(', ')} and ${parts[parts.length - 1]}` : parts.join('');
 
 export default function Projects() {
   const [filter, setFilter] = useState('All');

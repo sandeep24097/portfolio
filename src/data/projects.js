@@ -1,5 +1,5 @@
 /**
- * Portfolio projects, shown in this order (Shopify first, then WordPress).
+ * Portfolio projects, shown in this order (Shopify, then WordPress, then MERN).
  *
  * To add a project: append an entry, then run `npm run screenshots -- <slug>`
  * to capture its preview into /public/projects/<slug>-{600,1200}.webp.
@@ -164,6 +164,15 @@ export const projects = [
     description:
       'Online Hyrox and strength coaching for women — structured programming, real-food nutrition and a shop, built around booking a coaching spot.',
   },
+  {
+    slug: 'facsimile-photo',
+    name: 'Facsimile Photo',
+    url: 'https://www.facsimilephoto.com/',
+    platform: 'Shopify',
+    category: 'Photo Services',
+    description:
+      'Store for professional photo restoration, colorization and digitizing services, plus photography prints and archive consulting.',
+  },
 
   // -------------------------------------------------------------- WordPress
   {
@@ -210,5 +219,16 @@ export const projects = [
     category: 'Astrology',
     description:
       'Astrology content site with daily zodiac horoscopes, star-sign traits and compatibility insights.',
+  },
+
+  // ------------------------------------------------------------------- MERN
+  {
+    slug: 'skyline-scenes',
+    name: 'Skyline Scenes',
+    url: 'https://skylinescenes.com/',
+    platform: 'MERN',
+    category: 'Wall Art',
+    description:
+      'Store for city skyline photography — canvas, metal, acrylic and fine art prints, wall murals, and stock image licensing for commercial use.',
   },
 ];

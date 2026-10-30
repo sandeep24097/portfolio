@@ -52,6 +52,13 @@ export default function ContactForm() {
     const { _gotcha, ...data } = Object.fromEntries(new FormData(form));
     if (_gotcha) return; // honeypot filled → bot
 
+    // `required` lets a whitespace-only message through, so block that here.
+    if (!data.message.trim()) {
+      form.elements.message.setCustomValidity('Please fill out this field.');
+      form.reportValidity();
+      return;
+    }
+
     if (profile.web3formsKey || profile.contactFormEndpoint) {
       setStatus('sending');
       const controller = new AbortController();
@@ -118,7 +125,7 @@ export default function ContactForm() {
           name="message"
           rows="5"
           required
-          minLength={10}
+          onInput={(event) => event.currentTarget.setCustomValidity('')}
           placeholder="Tell me about your store, what you’d like to achieve and your timeline…"
         />
       </label>

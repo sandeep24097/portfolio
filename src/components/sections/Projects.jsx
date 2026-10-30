@@ -26,9 +26,11 @@ export default function Projects() {
   const shown = filtered.slice(0, visible);
   const remaining = filtered.length - shown.length;
 
-  const selectFilter = (value) => {
+  const selectFilter = (value, target) => {
     setFilter(value);
     setVisible(PAGE_SIZE);
+    // Keep the picked tab fully visible when the tab row is scrolled on mobile.
+    target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'nearest' });
   };
 
   const tabs = [
@@ -57,7 +59,7 @@ export default function Projects() {
               type="button"
               className={styles.tab}
               aria-pressed={filter === tab.value}
-              onClick={() => selectFilter(tab.value)}
+              onClick={(e) => selectFilter(tab.value, e.currentTarget)}
             >
               {tab.value}
               <span className={styles.count}>{tab.count}</span>
